@@ -5,12 +5,6 @@
 12821 -> да
 23432 -> да
 */
-
-Console.Write("Введите пятизначное число: ");
-int a = Convert.ToInt32(Console.ReadLine());
-string atext = Convert.ToString(a);
-Console.WriteLine(PalindromCheck(atext));
-
 string PalindromCheck(string atext)
 {
     if(atext[0] == atext[4] && atext[1] == atext[3])
@@ -18,3 +12,10 @@ string PalindromCheck(string atext)
     else
         return atext + "-> нет";
 }
+
+Console.Write("Введите пятизначное число: ");
+int a = Convert.ToInt32(Console.ReadLine());
+string atext = Convert.ToString(a);
+Console.WriteLine(PalindromCheck(atext));
+
+
