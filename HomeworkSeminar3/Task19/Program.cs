@@ -14,7 +14,7 @@ Console.WriteLine(PalindromCheck(atext));
 string PalindromCheck(string atext)
 {
     if(atext[0] == atext[4] && atext[1] == atext[3])
-        return "atext -> да";
+        return atext + "-> да";
     else
-        return "atext -> нет";
+        return atext + "-> нет";
 }
