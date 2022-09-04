@@ -12,6 +12,32 @@ void FillArray(int[] num)
         Console.Write($"{num[i]}, ");
     }
 }
+int Max(int[] number)
+{
+    int result = number[0];
+    for (int index = 0; index < number.Length; index++)
+    {
+        if (result < number[index]) result = number[index];
+    }
+    return result;
+}
+
+int Min(int[] numbers)
+{
+    int result = numbers[0];
+    for (int index = 0; index < numbers.Length; index++)
+    {
+        if (result > numbers[index]) result = numbers[index];
+    }
+    return result;
+}
 
 int[] array = new int[10];
 FillArray(array);
+Console.WriteLine();
+Console.Write("Максимальное число = ");
+Console.WriteLine(Max(array));
+Console.Write("Минимальное число = ");
+Console.WriteLine(Min(array));
+int sum = Max(array) - Min(array);
+Console.WriteLine("Разница между элементами = " + sum);
