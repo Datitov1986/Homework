@@ -10,7 +10,8 @@ double[,] coeff = new double[2, 2];
 double[] crossPoint = new double[2];
 
 
-void InputCoefficients(){
+void InputCoefficients()
+{
   for (int i = 0; i < coeff.GetLength(0); i++)
   {
     Console.Write($"Введите коэффициенты {i+1}-го уравнения (y = k * x + b):\n");
