@@ -6,21 +6,48 @@ b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
 
 
+double[,] coeff = new double[2, 2];
+double[] crossPoint = new double[2];
 
-void PointsRead(int B1, int K1, int B2, int K2)
-{
-    Console.Write("Введите значение b1: ");
-    int b1 = Convert.ToInt32(Console.ReadLine());
-    b1 = B1;
-    Console.Write("Введите значение k1: ");
-    int k1 = Convert.ToInt32(Console.ReadLine());
-    k1 = K1;
-    Console.Write("Введите значение b2: ");
-    int b2 = Convert.ToInt32(Console.ReadLine());
-    b2 = B2;
-    Console.Write("Введите значение k2: ");
-    int k2 = Convert.ToInt32(Console.ReadLine());
-    k2 = K2;
+
+void InputCoefficients(){
+  for (int i = 0; i < coeff.GetLength(0); i++)
+  {
+    Console.Write($"Введите коэффициенты {i+1}-го уравнения (y = k * x + b):\n");
+    for (int j = 0; j < coeff.GetLength(1); j++)
+    {
+      if(j==0) Console.Write($"Введите коэффициент k: ");
+      else Console.Write($"Введите коэффициент b: ");
+      coeff[i,j] = Convert.ToInt32(Console.ReadLine());
+    }
+  }
 }
 
-PointsRead(B1, K1, B2, K2);
+double[] Decision(double[,] coeff)
+{
+  crossPoint[0] = (coeff[1,1] - coeff[0,1]) / (coeff[0,0] - coeff[1,0]);
+  crossPoint[1] = crossPoint[0] * coeff[0,0] + coeff[0,1];
+  return crossPoint;
+}
+
+void OutputResponse(double[,] coeff)
+{
+  if (coeff[0,0] == coeff[1,0] && coeff[0,1] == coeff[1,1]) 
+  {
+    Console.Write($"\nПрямые совпадают");
+  }
+  else if (coeff[0,0] == coeff[1,0] && coeff[0,1] != coeff[1,1]) 
+  {
+    Console.Write($"\nПрямые параллельны");
+  }
+  else 
+  {
+    Decision(coeff);
+    Console.Write($"\nТочка пересечения прямых: ({crossPoint[0]}, {crossPoint[1]})");
+  }
+}
+
+
+InputCoefficients();
+OutputResponse(coeff);
+
