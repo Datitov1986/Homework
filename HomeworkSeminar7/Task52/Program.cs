@@ -15,7 +15,7 @@ int n = Convert.ToInt32(Console.ReadLine());
 int[,] array = new int[m, n];
 FillMatrixArray(array);
 PrintMatrixArray(array);
-Average(array);
+AverageColumn(array);
 
 void FillMatrixArray(int[,] array)
 {
@@ -42,7 +42,7 @@ void PrintMatrixArray(int[,] array)
 	}
 }
 
-void Average(int[,] array)
+void AverageColumn(int[,] array)
 {
     double average = 0;
     for (int j = 0; j < array.GetLength(1); j++)
