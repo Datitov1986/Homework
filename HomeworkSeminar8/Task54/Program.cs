@@ -34,20 +34,25 @@ void PrintArray(int[,] array)
 	}
 }
 
-void SortArray(int[,] array)
+int[,] SortArray(int[,] array)
 {
-   for (int i = 0; i < array.Length; i++)
+   int temp = 0;
+   for(int n = 0; n < array.GetLength(1); n++)
    {
-       for (int j = i+1; j < array.Length; j++)
-       {
-           if(array[i,j]>array[j,i])
-           {
-               int k=array[i,j];
-               array[i,j]=array[j,i];
-               array[j,i]=k;
-           }
-       }
-   }
+	for (int i = 0; i < array.GetLength(0); i++)
+	{
+		for (int j = 0; j < array.GetLength(1) - 1; j++)
+		{
+			if (array[i, j] < array[i, j + 1])
+			{
+				temp = array[i, j];
+                array[i, j] = array[i, j + 1];
+                array[i, j + 1] = temp;
+				
+			}
+		}
+	}
+   }return array;
 }
 
 Console.WriteLine("Введите колличество строк: ");
@@ -56,4 +61,5 @@ Console.WriteLine("Введите колличество столбцов: ");
 int n = Convert.ToInt32(Console.ReadLine());
 int[,] array = FillArray(m, n);
 PrintArray(array);
-SortArray(array);
+Console.WriteLine();
+PrintArray(SortArray(array));
