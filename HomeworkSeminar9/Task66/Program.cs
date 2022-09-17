@@ -7,7 +7,7 @@ M = 4; N = 8. -> 30
 
 int M = EnterNumbers("Введите число M: ");
 int N = EnterNumbers("Введите число N: ");
-Console.WriteLine("Your summ is: " + SummFromMtoN(M, N));
+Console.WriteLine("Сумма чисел от " + M + " до " + N + " = " + SummFromMtoN(M, N));
 
 int EnterNumbers(string input)
 {
